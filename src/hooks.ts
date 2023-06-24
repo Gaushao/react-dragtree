@@ -1,7 +1,7 @@
 import { NodeDragEventParams } from "rc-tree/lib/contextTypes";
 import { DataNode, EventDataNode, Key } from "rc-tree/lib/interface";
 import { useCallback } from "react";
-import { loop, remove } from "./utils";
+import { add, loop, remove } from "./utils";
 import { TreeNode, useCtx } from "./Context";
 
 export function useOnExpand() {
@@ -56,19 +56,7 @@ export function useAddNode() {
       if (isAvailableNode(name))
         update((d) => {
           const data = [...d];
-          loop(
-            data,
-            (item, index, arr) => {
-              if (dropPosition === 0) {
-                const children = item.children || [];
-                children.unshift(node);
-                item.children = children;
-                return item.children;
-              }
-              return arr.splice(index + 1, 0, node);
-            },
-            parentkey
-          );
+          add(data, node, String(parentkey));
           return data;
         });
       else return alert(`${name} already exists as node key`);
@@ -90,24 +78,13 @@ export function useOnDrop() {
       }
     ) => {
       const {
-        dropPosition,
-        node: { key: dropKey },
-        dragNode: { key: dragKey },
+        node: { key: parentkey },
+        dragNode: { key: draggedkey },
       } = info;
       update((d) => {
         const data = [...d];
-        const dragged = remove(data, String(dragKey));
-        if (dragged) {
-          loop(
-            data,
-            (item, index, arr) => {
-              if (dropPosition === 0)
-                return (item.children || []).unshift(dragged);
-              return arr.splice(index + 1, 0, dragged);
-            },
-            String(dropKey)
-          );
-        }
+        const dragged = remove(data, String(draggedkey));
+        if (dragged) add(data, dragged, String(parentkey), false);
         return data;
       });
     },

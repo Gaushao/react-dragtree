@@ -12,7 +12,7 @@ function TitleActions({ item }: { item: TreeNode }) {
       {item.key}
       <button
         title={`create new node into ${item.key}`}
-        disabled={item.disabled}
+        disabled={item.able2disable && item.disabled}
         onClick={() => {
           const child = add(String(item.key), 0);
           if (child) child.title = () => <TitleActions item={child} />;

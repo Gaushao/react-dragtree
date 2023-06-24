@@ -29,3 +29,25 @@ export function remove(data: TreeNode[], key: string) {
   );
   return removed as TreeNode | undefined;
 }
+
+export function add(
+  data: TreeNode[],
+  node: TreeNode,
+  key: string,
+  aschild = true
+) {
+  loop(
+    data,
+    (item, index, arr) => {
+      if (aschild) {
+        const children = item.children || [];
+        children.unshift(node);
+        item.children = children;
+      } else {
+        // as sibling
+        arr.splice(index + 1, 0, node);
+      }
+    },
+    key
+  );
+}
