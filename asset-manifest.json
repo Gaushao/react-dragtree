@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/react-dragtree/static/css/main.3261447f.css",
-    "main.js": "/react-dragtree/static/js/main.070fea3d.js",
+    "main.js": "/react-dragtree/static/js/main.33015619.js",
     "index.html": "/react-dragtree/index.html",
     "main.3261447f.css.map": "/react-dragtree/static/css/main.3261447f.css.map",
-    "main.070fea3d.js.map": "/react-dragtree/static/js/main.070fea3d.js.map"
+    "main.33015619.js.map": "/react-dragtree/static/js/main.33015619.js.map"
   },
   "entrypoints": [
     "static/css/main.3261447f.css",
-    "static/js/main.070fea3d.js"
+    "static/js/main.33015619.js"
   ]
 }
