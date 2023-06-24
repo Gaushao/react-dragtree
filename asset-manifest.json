@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-dragtree/static/css/main.3261447f.css",
+    "main.js": "/react-dragtree/static/js/main.070fea3d.js",
+    "index.html": "/react-dragtree/index.html",
+    "main.3261447f.css.map": "/react-dragtree/static/css/main.3261447f.css.map",
+    "main.070fea3d.js.map": "/react-dragtree/static/js/main.070fea3d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3261447f.css",
+    "static/js/main.070fea3d.js"
+  ]
+}
